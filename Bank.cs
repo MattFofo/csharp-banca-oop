@@ -45,13 +45,36 @@ namespace csharp_banca_oop
             }
         }
 
-        public bool FindClient(Client client)
+        public Client FindClient(string clientName)
         {
-            if (this.clientsList.Contains(client))
+
+            Client result = null;
+
+            foreach (var client in this.clientsList)
             {
-                return true;
+                if (client.Name == clientName)
+                {
+                    result = client;
+                    break;
+
+                } else
+                {
+                    Console.WriteLine("cliente non trovato");
+                }              
             }
-            return false;
+            return result;
         }
+
+        public void PrintClientInfo(Client client)
+        {
+            if (this.FindClient == null)
+            {
+                Console.WriteLine("nessun cliente");
+            }
+
+            Console.WriteLine("Nome cliente: " + client.Name);
+
+        }
+
     }
 }

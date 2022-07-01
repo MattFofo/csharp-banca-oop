@@ -44,6 +44,6 @@ bank1.AddNewClient(client3);
 
 bank1.PrintClientList();
 
-Console.WriteLine(bank1.FindClient(client1));
+//Client foundClient = bank1.FindClient("Marco");
 
-
+bank1.PrintClientInfo(bank1.FindClient("Marco"));
