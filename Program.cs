@@ -49,3 +49,5 @@ bank1.PrintClientList();
 
 
 bank1.PrintClientInfo(bank1.FindClient());
+
+bank1.EditClient(client3);

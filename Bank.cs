@@ -76,5 +76,18 @@ namespace csharp_banca_oop
             }
         }
 
+        public void EditClient(Client client)
+        {
+            this.PrintClientInfo(client);
+
+            Console.WriteLine("Modifica il nome: ");
+            string newName = Console.ReadLine();
+
+            client.Name = newName;
+
+            Console.WriteLine("Info modificate");
+
+            this.PrintClientInfo(client);
+        }
     }
 }
