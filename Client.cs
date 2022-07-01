@@ -3,14 +3,15 @@
     internal class Client
     {
         public string Name { get;  set; }
-        private string Surname { get; set; }
-        private string FiscalCode { get; set; }
-        private int Salary { get; set; }
+        public string Surname { get; set; }
+        public string FiscalCode { get; private set; }
+        public int Salary { get; set; }
 
 
-        public Client(string name)
+        public Client(string name, string fiscalCode)
         {
-            Name = name;
+            this.Name = name;
+            this.FiscalCode = fiscalCode;
         }
     }
 }

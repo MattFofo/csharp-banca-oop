@@ -22,12 +22,62 @@ namespace csharp_banca_oop
         }
 
 
-        public static Client CreateClient(string name)
+        public static Client CreateClient(string name, string fiscalCode)
         {
-            Client newClient = new Client(name);
+            Client newClient = new Client(name, fiscalCode);
 
             return newClient;
             
+        }
+
+        public void CreateLoan()
+        {
+            Console.WriteLine("Creazione nuovo prestito");
+
+            Console.WriteLine("Inserisci Codice Fiscale Cliente: ");
+            string borrowerFiscalCode = Console.ReadLine();
+
+            Client borrower = this.FindClient(borrowerFiscalCode);
+
+            Console.WriteLine("Inserisci ammontare prestito:");
+            int totalDue = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Inserisci rata:");
+            int instalment = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Data inizio prestito:");
+            DateTime startLoan = DateTime.Parse(Console.ReadLine());
+
+            Console.WriteLine("Data inizio prestito:");
+            DateTime endLoan = DateTime.Parse(Console.ReadLine());
+
+            Random random = new Random();
+            int iD = random.Next(1, 999999999); //TODO: controllo per renderlo unico
+
+            Loan loan = new Loan(iD, borrower, totalDue, instalment, startLoan, endLoan);
+
+            Console.WriteLine("prestito creato.");
+            Console.WriteLine("prestito info:");
+
+            loan.PrintLoanInfo();
+        }
+
+        public void AddNewLoan(Loan loan)
+        {
+            this.loansList.Add(loan);
+
+            Console.WriteLine("hai aggiunto un nuovo prestito");
+        }
+
+        public void PrintLoanList()
+        {
+            Console.WriteLine("Loans List:");
+            foreach (var loan in loansList)
+            {
+                Console.WriteLine("Loan Info:");
+                loan.PrintLoanInfo();
+
+            }
         }
 
         public void AddNewClient(Client client)
@@ -48,19 +98,36 @@ namespace csharp_banca_oop
         public Client FindClient()
         {
             Console.Write("Scrivi nome cliente da cercare:");
-            string clientName = Console.ReadLine();
+            string clientFiscalCode = Console.ReadLine();
 
             Client result = null;
 
             foreach (var client in this.clientsList)
             {
-                if (client.Name == clientName)
+                if (client.FiscalCode == clientFiscalCode)
                 {
                     result = client;
                     break;
 
                 }              
             }
+            return result;
+        }
+
+        public Client FindClient(string fiscalCode)
+        {
+            Client result = null;
+
+            foreach (var client in this.clientsList)
+            {
+                if (client.FiscalCode == fiscalCode)
+                {
+                    result = client;
+                    break;
+
+                }
+            }
+
             return result;
         }
 
@@ -89,5 +156,7 @@ namespace csharp_banca_oop
 
             this.PrintClientInfo(client);
         }
+
+
     }
 }
