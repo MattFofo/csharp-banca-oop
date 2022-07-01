@@ -46,4 +46,6 @@ bank1.PrintClientList();
 
 //Client foundClient = bank1.FindClient("Marco");
 
-bank1.PrintClientInfo(bank1.FindClient("Marco"));
+
+
+bank1.PrintClientInfo(bank1.FindClient());

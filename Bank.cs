@@ -45,8 +45,10 @@ namespace csharp_banca_oop
             }
         }
 
-        public Client FindClient(string clientName)
+        public Client FindClient()
         {
+            Console.Write("Scrivi nome cliente da cercare:");
+            string clientName = Console.ReadLine();
 
             Client result = null;
 
@@ -57,9 +59,6 @@ namespace csharp_banca_oop
                     result = client;
                     break;
 
-                } else
-                {
-                    Console.WriteLine("cliente non trovato");
                 }              
             }
             return result;
@@ -67,13 +66,14 @@ namespace csharp_banca_oop
 
         public void PrintClientInfo(Client client)
         {
-            if (this.FindClient == null)
+            if (client == null)
             {
                 Console.WriteLine("nessun cliente");
+
+            } else
+            {
+                Console.WriteLine("Nome cliente: " + client.Name);
             }
-
-            Console.WriteLine("Nome cliente: " + client.Name);
-
         }
 
     }
