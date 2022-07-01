@@ -34,8 +34,16 @@ Bank bank1 = new Bank("MPS");
 
 Client client1 = Bank.CreateClient("Marco");
 Client client2 = Bank.CreateClient("Sara");
+Client client3 = Bank.CreateClient("Federico");
+
 
 bank1.AddNewClient(client1);
 bank1.AddNewClient(client2);
+bank1.AddNewClient(client3);
+
+
+bank1.PrintClientList();
+
+Console.WriteLine(bank1.FindClient(client1));
 
 

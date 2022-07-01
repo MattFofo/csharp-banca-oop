@@ -10,7 +10,7 @@ namespace csharp_banca_oop
     {
         private string name { get; set; }
 
-        private List<Client> clientsList;
+        private List<Client> clientsList = new List<Client>();
 
         private List<Loan> loansList;
 
@@ -32,10 +32,26 @@ namespace csharp_banca_oop
 
         public void AddNewClient(Client client)
         {
-            this.clientsList = new List<Client>();
             this.clientsList.Add(client);
 
             Console.WriteLine("hai aggiunto {0} tra i clienti", client.Name);
+        }
+
+        public void PrintClientList()
+        {
+            foreach (var client in this.clientsList)
+            {
+                Console.WriteLine(client.Name);
+            }
+        }
+
+        public bool FindClient(Client client)
+        {
+            if (this.clientsList.Contains(client))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
