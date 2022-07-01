@@ -13,5 +13,29 @@ namespace csharp_banca_oop
         private List<Client> clientsList;
 
         private List<Loan> loansList;
+
+
+
+        public Bank(string name)
+        {
+            this.name = name;
+        }
+
+
+        public static Client CreateClient(string name)
+        {
+            Client newClient = new Client(name);
+
+            return newClient;
+            
+        }
+
+        public void AddNewClient(Client client)
+        {
+            this.clientsList = new List<Client>();
+            this.clientsList.Add(client);
+
+            Console.WriteLine("hai aggiunto {0} tra i clienti", client.Name);
+        }
     }
 }

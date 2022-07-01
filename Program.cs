@@ -30,3 +30,12 @@
 
 using csharp_banca_oop;
 
+Bank bank1 = new Bank("MPS");
+
+Client client1 = Bank.CreateClient("Marco");
+Client client2 = Bank.CreateClient("Sara");
+
+bank1.AddNewClient(client1);
+bank1.AddNewClient(client2);
+
+

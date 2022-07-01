@@ -2,9 +2,15 @@
 {
     internal class Client
     {
-        private string Name { get; set; }
+        public string Name { get; private set; }
         private string Surname { get; set; }
         private string FiscalCode { get; set; }
         private int Salary { get; set; }
+
+
+        public Client(string name)
+        {
+            Name = name;
+        }
     }
 }
