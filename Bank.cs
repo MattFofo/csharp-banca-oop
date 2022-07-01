@@ -12,7 +12,7 @@ namespace csharp_banca_oop
 
         private List<Client> clientsList = new List<Client>();
 
-        private List<Loan> loansList;
+        private List<Loan> loansList = new List<Loan>();
 
 
 
@@ -56,6 +56,8 @@ namespace csharp_banca_oop
 
             Loan loan = new Loan(iD, borrower, totalDue, instalment, startLoan, endLoan);
 
+            this.AddNewLoan(loan);
+
             Console.WriteLine("prestito creato.");
             Console.WriteLine("prestito info:");
 
@@ -74,8 +76,9 @@ namespace csharp_banca_oop
             Console.WriteLine("Loans List:");
             foreach (var loan in loansList)
             {
-                Console.WriteLine("Loan Info:");
+                Console.WriteLine("************");
                 loan.PrintLoanInfo();
+                Console.WriteLine("************");
 
             }
         }

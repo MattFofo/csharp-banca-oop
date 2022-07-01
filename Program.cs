@@ -55,4 +55,5 @@ bank1.PrintClientInfo(bank1.FindClient());
 bank1.CreateLoan();
 
 
-//bank1.PrintLoanList();
+
+bank1.PrintLoanList();
