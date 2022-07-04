@@ -22,13 +22,6 @@ namespace csharp_banca_oop
         }
 
 
-        public static Client CreateClient(string name, string fiscalCode)
-        {
-            Client newClient = new Client(name, fiscalCode);
-
-            return newClient;
-
-        }
 
         public Loan CreateLoan()
         {

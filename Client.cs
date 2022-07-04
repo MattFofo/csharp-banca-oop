@@ -14,6 +14,17 @@
             this.FiscalCode = fiscalCode;
         }
 
+        public static Client CreateClient(string name, string fiscalCode)
+        {
+            Client newClient = new Client(name, fiscalCode);
+            
+            Account newAccount = new CheckingAccount(newClient);
+            newAccount.FirstDeposit();
+
+            return newClient;
+
+        }
+
         public void PrintClientInfo(Client client)
         {
             if (client == null)

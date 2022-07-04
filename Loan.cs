@@ -1,11 +1,5 @@
 ﻿namespace csharp_banca_oop
 {
-    public interface IInterest
-    {
-        public int InteressiSulTot { get; set; }
-        public int CalculateInterest();
-        
-    }
     internal class Loan : IInterest
     {
         private int ID { get; set; }
