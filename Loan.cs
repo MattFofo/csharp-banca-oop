@@ -29,6 +29,7 @@
         public void PrintLoanInfo()
         {
             Console.WriteLine("ID: " + this.ID);
+
             if (this.Borrower == null)
             {
                 Console.WriteLine("codice fiscale non è associato a nessun cliente");
@@ -36,6 +37,10 @@
             {
                 Console.WriteLine("Borrower Fiscal Code: " + this.Borrower.FiscalCode);
             }
+
+            Console.WriteLine("Data inizio: " + this.StartLoan);
+            Console.WriteLine("Data fine: " + this.EndLoan);
+
             Console.WriteLine("Ammontare prestito: " + (this.totalDue + this.InteressiSulTot));
             Console.WriteLine("Rata: " + this.Instalment);
 
@@ -48,5 +53,7 @@
 
             return this.InteressiSulTot = this.totalDue * interest / 100;
         }
+
+
     }
 }

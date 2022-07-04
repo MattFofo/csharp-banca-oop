@@ -27,7 +27,7 @@ namespace csharp_banca_oop
             Client newClient = new Client(name, fiscalCode);
 
             return newClient;
-            
+
         }
 
         public Loan CreateLoan()
@@ -38,6 +38,12 @@ namespace csharp_banca_oop
             string borrowerFiscalCode = Console.ReadLine();
 
             Client borrower = this.FindClient(borrowerFiscalCode);
+            if (borrower == null)
+            {
+                Console.WriteLine("nessun cliente associato al CF");
+                //Console.Clear();
+                this.CreateLoan();
+            }
 
             Console.WriteLine("Inserisci ammontare prestito:");
             int totalDue = int.Parse(Console.ReadLine());
@@ -114,7 +120,7 @@ namespace csharp_banca_oop
                     result = client;
                     break;
 
-                }              
+                }
             }
             return result;
         }
@@ -134,32 +140,6 @@ namespace csharp_banca_oop
             }
 
             return result;
-        }
-
-        public void PrintClientInfo(Client client)
-        {
-            if (client == null)
-            {
-                Console.WriteLine("nessun cliente");
-
-            } else
-            {
-                Console.WriteLine("Nome cliente: " + client.Name);
-            }
-        }
-
-        public void EditClient(Client client)
-        {
-            this.PrintClientInfo(client);
-
-            Console.WriteLine("Modifica il nome: ");
-            string newName = Console.ReadLine();
-
-            client.Name = newName;
-
-            Console.WriteLine("Info modificate");
-
-            this.PrintClientInfo(client);
         }
 
     }
