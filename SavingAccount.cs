@@ -8,6 +8,10 @@ namespace csharp_banca_oop
 {
     internal class SavingAccount : Account
     {
+        int MaxDeposit { get; } = 5000;
+
+        int MinBalance { get; } = 1000;
+
         public SavingAccount(Client accountHolder) : base(accountHolder)
         {
             this.accountHolder = accountHolder;
@@ -17,7 +21,7 @@ namespace csharp_banca_oop
             Console.WriteLine("Quanto depositi? (massimo 5000euro)");
             int deposit = int.Parse(Console.ReadLine());
 
-            if (deposit > 5000)
+            if (deposit > this.MaxDeposit)
             {
                 Console.WriteLine("Troppi soldi, non li vogliamo");
                 this.Deposit();
@@ -37,7 +41,7 @@ namespace csharp_banca_oop
             Console.WriteLine("Quanto prelievi? (devi avere almeo 1000euro sul conto)");
             int withdraw = int.Parse(Console.ReadLine());
 
-            if ((this.balance - withdraw) < 1000)
+            if ((this.balance - withdraw) < this.MinBalance)
             {
                 Console.WriteLine("Saldo insufficiente");
                 this.Withdraw();
