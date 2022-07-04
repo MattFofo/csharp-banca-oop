@@ -33,13 +33,13 @@ using csharp_banca_oop;
 Bank bank1 = new Bank("MPS");
 
 Client client1 = Client.CreateClient("Marco", "M000000");
-Client client2 = Client.CreateClient("Sara", "S000000");
-Client client3 = Client.CreateClient("Federico", "F000000");
+//Client client2 = Client.CreateClient("Sara", "S000000");
+//Client client3 = Client.CreateClient("Federico", "F000000");
 
 
 bank1.AddNewClient(client1);
-bank1.AddNewClient(client2);
-bank1.AddNewClient(client3);
+//bank1.AddNewClient(client2);
+//bank1.AddNewClient(client3);
 
 
 bank1.PrintClientList();

@@ -39,12 +39,6 @@
                 newSavingAccount.FirstDeposit();
             }
 
-            Account newAccount = new CheckingAccount(newClient);
-            newClient.Accounts.Add(newAccount);
-
-            newAccount.FirstDeposit();
-
-
             return newClient;
 
         }
