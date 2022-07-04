@@ -48,12 +48,12 @@ bank1.PrintClientList();
 
 
 
-bank1.PrintClientInfo(bank1.FindClient());
+//bank1.PrintClientInfo(bank1.FindClient());
 
 //bank1.EditClient(client3);
 
-bank1.CreateLoan();
-
+Loan loan1 = bank1.CreateLoan();
+Console.WriteLine("interesse: " + loan1.CalculateInterest(3));
 
 
 bank1.PrintLoanList();

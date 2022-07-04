@@ -30,7 +30,7 @@ namespace csharp_banca_oop
             
         }
 
-        public void CreateLoan()
+        public Loan CreateLoan()
         {
             Console.WriteLine("Creazione nuovo prestito");
 
@@ -62,6 +62,8 @@ namespace csharp_banca_oop
             Console.WriteLine("prestito info:");
 
             loan.PrintLoanInfo();
+
+            return loan;
         }
 
         public void AddNewLoan(Loan loan)

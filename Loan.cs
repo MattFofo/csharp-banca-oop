@@ -1,6 +1,11 @@
 ﻿namespace csharp_banca_oop
 {
-    internal class Loan
+    public interface IInterest
+    {
+        public int CalculateInterest(int interest);
+        
+    }
+    internal class Loan : IInterest
     {
         private int ID { get; set; }
         private Client Borrower { get; set; }
@@ -8,7 +13,6 @@
         private int Instalment { get; set; }
         private DateTime StartLoan { get; set; }
         private DateTime EndLoan { get; set; }
-
 
         public Loan(int iD, Client borrower, int totalDue, int instalment, DateTime startLoan, DateTime endLoan)
         {
@@ -27,6 +31,11 @@
             Console.WriteLine("Ammontare prestito: " + this.totalDue);
             Console.WriteLine("Rata: " + this.Instalment);
 
+        }
+
+        public int CalculateInterest(int interest)
+        {
+            return this.totalDue * interest / 100;
         }
     }
 }
