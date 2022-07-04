@@ -2,10 +2,12 @@
 {
     internal class Client
     {
-        public string Name { get;  set; }
-        public string Surname { get; set; }
+
+        public string Name { get;  private set; }
+        public string Surname { get; private set; }
         public string FiscalCode { get; private set; }
-        public int Salary { get; set; }
+        public int Salary { get; private set; }
+        public List<Account> Accounts = new List<Account>();
 
 
         public Client(string name, string fiscalCode)
@@ -17,9 +19,31 @@
         public static Client CreateClient(string name, string fiscalCode)
         {
             Client newClient = new Client(name, fiscalCode);
-            
+
+            Console.WriteLine("Select 1 for Checking account"); 
+            Console.WriteLine("Select 2 for Saving account");
+            int accountChoice = int.Parse(Console.ReadLine());
+
+            if (accountChoice == 0)
+            {
+                Account newChekingAccount = new CheckingAccount(newClient);
+                newClient.Accounts.Add(newChekingAccount);
+
+                newChekingAccount.FirstDeposit();
+
+            } else if (accountChoice == 1) 
+            {
+                Account newSavingAccount = new SavingAccount(newClient);
+                newClient.Accounts.Add(newSavingAccount);
+
+                newSavingAccount.FirstDeposit();
+            }
+
             Account newAccount = new CheckingAccount(newClient);
+            newClient.Accounts.Add(newAccount);
+
             newAccount.FirstDeposit();
+
 
             return newClient;
 
