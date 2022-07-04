@@ -53,7 +53,7 @@ bank1.PrintClientList();
 //bank1.EditClient(client3);
 
 Loan loan1 = bank1.CreateLoan();
-Console.WriteLine("interesse: " + loan1.CalculateInterest(3));
+Console.WriteLine("interesse: " + loan1.CalculateInterest());
 
 
 bank1.PrintLoanList();

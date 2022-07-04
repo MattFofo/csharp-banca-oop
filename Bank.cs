@@ -162,6 +162,5 @@ namespace csharp_banca_oop
             this.PrintClientInfo(client);
         }
 
-
     }
 }
