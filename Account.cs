@@ -12,6 +12,11 @@ namespace csharp_banca_oop
         public int balance;
         public int accountId;
 
+        public Account(Client accountHolder)
+        {
+            this.accountHolder = accountHolder;
+        }
+
         public abstract void Withdraw();
 
         public abstract void Deposit();

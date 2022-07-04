@@ -84,7 +84,7 @@
 
         public Account GetClientAccount()
         {
-            return this.Accounts[0];
+            return this.Accounts[0]; //da far funzionare con più accounts
         }
     }
 

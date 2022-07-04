@@ -9,7 +9,7 @@ namespace csharp_banca_oop
     internal class CheckingAccount : Account
     {
 
-        public CheckingAccount(Client accountHolder)
+        public CheckingAccount(Client accountHolder) : base(accountHolder)
         {
             this.accountHolder = accountHolder;
         }

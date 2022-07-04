@@ -49,6 +49,9 @@ AccountClient1.Deposit();
 
 client1.PrintBalance();
 
+AccountClient1.Withdraw();
+
+client1.PrintBalance();
 
 bank1.PrintClientList();
 
