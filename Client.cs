@@ -7,6 +7,7 @@
         public string Surname { get; private set; }
         public string FiscalCode { get; private set; }
         public int Salary { get; private set; }
+
         public List<Account> Accounts = new List<Account>();
 
 
@@ -24,19 +25,20 @@
             Console.WriteLine("Select 2 for Saving account");
             int accountChoice = int.Parse(Console.ReadLine());
 
-            if (accountChoice == 0)
+            if (accountChoice == 1)
             {
                 Account newChekingAccount = new CheckingAccount(newClient);
                 newClient.Accounts.Add(newChekingAccount);
 
                 newChekingAccount.FirstDeposit();
 
-            } else if (accountChoice == 1) 
+            } else if (accountChoice == 2) 
             {
                 Account newSavingAccount = new SavingAccount(newClient);
                 newClient.Accounts.Add(newSavingAccount);
 
                 newSavingAccount.FirstDeposit();
+
             }
 
             return newClient;
@@ -70,5 +72,20 @@
             this.PrintClientInfo(client);
         }
 
+
+        public void PrintBalance()
+        {
+            foreach (var account in this.Accounts)
+            {
+                Console.WriteLine(account.GetType());
+                Console.WriteLine("Your balance is: " + account.balance);
+            }
+        }
+
+        public Account GetClientAccount()
+        {
+            return this.Accounts[0];
+        }
     }
+
 }

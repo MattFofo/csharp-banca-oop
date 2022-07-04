@@ -41,6 +41,14 @@ bank1.AddNewClient(client1);
 //bank1.AddNewClient(client2);
 //bank1.AddNewClient(client3);
 
+Account AccountClient1 = client1.GetClientAccount();
+
+client1.PrintBalance();
+
+AccountClient1.Deposit();
+
+client1.PrintBalance();
+
 
 bank1.PrintClientList();
 
@@ -52,8 +60,8 @@ bank1.PrintClientList();
 
 //bank1.EditClient(client3);
 
-Loan loan1 = bank1.CreateLoan();
-Console.WriteLine("interesse: " + loan1.CalculateInterest());
+//Loan loan1 = bank1.CreateLoan();
+//Console.WriteLine("interesse: " + loan1.CalculateInterest());
 
 
 bank1.PrintLoanList();
